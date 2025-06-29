@@ -1,0 +1,221 @@
+[
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 0,
+    "type": "user",
+    "message": "seguinte daqui para frente você vai ser o meugerenteEngenheirode softwaree vai terminar o que você começou ontemvou clarear sua memória já# AigroQuantumSaaS - Projeto Monorepo COMPLETO\n#\n# Estrutura de diretórios e arquivos essenciais para um SaaS funcional em React + Node + MongoDB + Docker\n# O conteúdo de cada arquivo está descrito abaixo, prontos para copiar.\n# Para usar: Salve cada trecho em seu respectivo arquivo/diretório conforme a estrutura.\n\n─────────────────────────────────────────────\nAigroQuantumSaaS/\n├── frontend/            # React (Vite)\n│   ├── src/\n│   │   ├── App.jsx\n│   │   ├── main.jsx\n│   │   ├── components/\n│   │   │   ├── Header.jsx\n│   │   │   ├── Hero.jsx\n│   │   │   ├── Features.jsx\n│   │   │   └── Footer.jsx\n│   ├── public/\n│   │   └── index.html\n│   ├── package.json\n│   └── vite.config.js\n├── backend/             # Node + Express + Mongo\n│   ├── server.js\n│   ├── config/\n│   │   └── db.js\n│   ├── routes/\n│   │   ├── auth.js\n│   │   ├── course.js\n│   │   └── gamification.js\n│   ├── controllers/\n│   │   ├── authController.js\n│   │   ├── courseController.js\n│   │   └── gamificationController.js\n│   ├── models/\n│   │   ├── User.js\n│   │   ├── Course.js\n│   │   ├── UserProgress.js\n│   │   └── Achievement.js\n│   ├── middleware/\n│   │   └── authMiddleware.js\n│   ├── aiService.js\n│   └── package.json\n├── ai/\n│   ├── scripts/\n│   │   └── evaluate_code.py\n│   └── requirements.txt\n├── docker-compose.yml\n├── .env.example\n├── README.md\n├── .gitignore\n└── .github/\n    └── workflows/\n        └── deploy.yml\n─────────────────────────────────────────────\n\n─ frontend/package.json\n{\n  \"name\": \"frontend\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"scripts\": {\n    \"dev\": \"vite\",\n    \"build\": \"vite build\",\n    \"preview\": \"vite preview\"\n  },\n  \"dependencies\": {\n    \"react\": \"^18.2.0\",\n    \"react-dom\": \"^18.2.0\"\n  },\n  \"devDependencies\": {\n    \"vite\": \"^4.4.0\"\n  }\n}\n\n─ frontend/vite.config.js\nimport { defineConfig } from 'vite';\nimport react from '@vitejs/plugin-react';\n\nexport default defineConfig({\n  plugins: [react()],\n  server: {\n    port: 3000\n  }\n});\n\n─ frontend/public/index.html\n<!DOCTYPE html>\n<html lang=\"pt-br\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <link rel=\"icon\" href=\"/favicon.ico\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>AigroQuantumSaaS Enterprise</title>\n  </head>\n  <body>\n    <div id=\"root\"></div>\n    <script type=\"module\" src=\"/src/main.jsx\"></script>\n  </body>\n</html>\n\n─ frontend/src/main.jsx\nimport React from \"react\";\nimport ReactDOM from \"react-dom/client\";\nimport App from \"./App.jsx\";\n\nReactDOM.createRoot(document.getElementById(\"root\")).render(\n  <React.StrictMode>\n    <App />\n  </React.StrictMode>\n);\n\n─ frontend/src/App.jsx\nimport React, { useState } from \"react\";\nimport Header from \"./components/Header\";\nimport Hero from \"./components/Hero\";\nimport Features from \"./components/Features\";\nimport Footer from \"./components/Footer\";\n\nfunction App() {\n  const [tab, setTab] = useState(\"financial\");\n\n  return (\n    <div style={{ background: \"#0f0f0f\", minHeight: \"100vh\", color: \"#fff\" }}>\n      <Header />\n      <Hero />\n      <div style={{ maxWidth: 900, margin: \"auto\", padding: \"2rem\" }}>\n        <div style={{ display: \"flex\", gap: \"1rem\", margin: \"1.5rem 0\" }}>\n          <button\n            onClick={() => setTab(\"financial\")}\n            className={`tab-btn${tab === \"financial\" ? \" active\" : \"\"}`}\n          >\n             FinancialBrain\n          </button>\n          <button\n            onClick={() => setTab(\"pest\")}\n            className={`tab-btn${tab === \"pest\" ? \" active\" : \"\"}`}\n          >\n             PestControlBrain\n          </button>\n          <button\n            onClick={() => setTab(\"ai\")}\n            className={`tab-btn${tab === \"ai\" ? \" active\" : \"\"}`}\n          >\n             AI Engineering\n          </button>\n        </div>\n        <div>\n          {tab === \"financial\" && <Features type=\"financial\" />}\n          {tab === \"pest\" && <Features type=\"pest\" />}\n          {tab === \"ai\" && <Features type=\"ai\" />}\n        </div>\n      </div>\n      <Footer />\n    </div>\n  );\n}\n\nexport default App;\n\n─ frontend/src/components/Header.jsx\nimport React from \"react\";\n\nexport default function Header() {\n  return (\n    <header style={{ background: \"#111\", padding: \"2rem\", textAlign: \"center\", borderBottom: \"1px solid #7c3aed44\" }}>\n      <h1 style={{ color: \"#7c3aed\", fontSize: \"1.8rem\" }}>AigroQuantumSaaS Enterprise</h1>\n      <p>\n        O cérebro digital da sua empresa.<br />\n        IA Generativa, Algoritmos Quânticos Simulados e Arquitetura Modular Adaptativa\n      </p>\n    </header>\n  );\n}\n\n─ frontend/src/components/Hero.jsx\nimport React from \"react\";\n\nexport default function Hero() {\n  return (\n    <section style={{ background: \"#1a1a1a\", padding: \"2rem\", borderRadius: 10, margin: \"2rem auto\", maxWidth: 900, boxShadow: \"0 0 10px #7c3aed44\" }}>\n      <h2 style={{ color: \"#7c3aed\" }}>Plataforma Modular SaaS</h2>\n      <p>\n        Gestão financeira preditiva, controle de pragas, engenharia de prompts e integração IA/Quântico.\n      </p>\n    </section>\n  );\n}\n\n─ frontend/src/components/Features.jsx\nimport React, { useState } from \"react\";\n\nconst prompts = {\n  financial: \"Gerar relatório financeiro mensal detalhado com análise de despesas e receitas.\",\n  pest: \"Prever surto de pragas rurais com base nos dados históricos.\",\n  ai: \"Como reduzir custos operacionais em 40%?\"\n};\n\nexport default function Features({ type }) {\n  const [prompt, setPrompt] = useState(prompts[type]);\n  const [output, setOutput] = useState(\"\");\n\n  async function handleSend() {\n    setOutput(\"Processando...\");\n    const endpoint =\n      type === \"financial\"\n        ? \"http://localhost:5000/api/financial\"\n        : type === \"pest\"\n        ? \"http://localhost:5000/api/pest-control\"\n        : \"http://localhost:5000/api/ai\";\n    try {\n      const res = await fetch(endpoint, {\n        method: \"POST\",\n        headers: { \"Content-Type\": \"application/json\" },\n        body: JSON.stringify({ prompt })\n      });\n      const data = await res.json();\n      setOutput(JSON.stringify(data, null, 2));\n    } catch (e) {\n      setOutput(\"Erro ao consultar backend.\");\n    }\n  }\n\n  return (\n    <section style={{ background: \"#1a1a1a\", padding: \"1.5rem\", borderRadius: 10, margin: \"1.5rem 0\", boxShadow: \"0 0 10px #7c3aed44\" }}>\n      <h2>\n        {type === \"financial\" && \"FinancialBrain – Gestão Financeira Preditiva\"}\n        {type === \"pest\" && \"PestControlBrain – Controle Integrado de Pragas\"}\n        {type === \"ai\" && \" Prompt Engineering Engine\"}\n      </h2>\n      <div style={{ marginTop: \"1.5rem\" }}>\n        <input\n          type=\"text\"\n          value={prompt}\n          onChange={(e) => setPrompt(e.target.value)}\n          style={{ width: \"100%\", padding: \"0.8rem\", borderRadius: 6, border: \"none\", marginBottom: 8 }}\n        />\n        <button\n          onClick={handleSend}\n          style={{\n            background: \"#7c3aed\",\n            color: \"#fff\",\n            padding: \"0.8rem 1.2rem\",\n            border: \"none\",\n            borderRadius: 6,\n            fontWeight: \"bold\",\n            cursor: \"pointer\",\n            marginLeft: 8\n          }}\n        >\n          Enviar\n        </button>\n      </div>\n      <pre style={{ background: \"#000\", padding: \"1rem\", borderRadius: 8, marginTop: 24, minHeight: 80 }}>{output}</pre>\n    </section>\n  );\n}\n\n─ frontend/src/components/Footer.jsx\nimport React from \"react\";\n\nexport default function Footer() {\n  return (\n    <footer style={{ textAlign: \"center\", padding: \"2rem\", background: \"#000\", fontSize: \"0.9rem\", color: \"#666\" }}>\n      &copy; 2025 AigroNovaTech Solutions – Todos os direitos reservados.<br />\n      www.aigronovatechsolutions.com\n    </footer>\n  );\n}\n\n──────────────────────────────\n\n─ backend/package.json\n{\n  \"name\": \"backend\",\n  \"version\": \"1.0.0\",\n  \"main\": \"server.js\",\n  \"scripts\": {\n    \"start\": \"node server.js\"\n  },\n  \"dependencies\": {\n    \"express\": \"^4.18.2\",\n    \"mongoose\": \"^7.6.0\",\n    \"body-parser\": \"^1.20.2\",\n    \"cors\": \"^2.8.5\",\n    \"dotenv\": \"^16.4.0\"\n  }\n}\n\n─ backend/config/db.js\nconst mongoose = require('mongoose');\n\nconst connectDB = async () => {\n  try {\n    await mongoose.connect(process.env.MONGO_URI || \"mongodb://mongo:27017/aigroquantum\", {\n      useNewUrlParser: true,\n      useUnifiedTopology: true\n    });\n    console.log(\" Conectado ao MongoDB\");\n  } catch (err) {\n    console.error(\"Erro ao conectar MongoDB:\", err.message);\n    process.exit(1);\n  }\n};\n\nmodule.exports = connectDB;\n\n─ backend/server.js\nconst express = require('express');\nconst bodyParser = require('body-parser');\nconst cors = require('cors');\nconst connectDB = require('./config/db');\n\nconst app = express();\nconst PORT = process.env.PORT || 5000;\n\nconnectDB();\n\napp.use(cors());\napp.use(bodyParser.json());\n\n// Rotas\napp.post('/api/financial', async (req, res) => {\n  const prompt = req.body.prompt;\n  // Simulação de análise financeira\n  res.json({\n    summary: {\n      totalRevenue: 285000,\n      totalExpenses: 164000,\n      profit: 121000,\n      avgRevenue: 57000,\n      avgExpenses: 32800\n    },\n    forecast: {\n      nextMonthRevenue: 59700,\n      nextMonthExpenses: 33840\n    },\n    suggestions: [\n      \"Reduzir custos fixos com automação\",\n      \"Reavaliar margem de lucro\",\n      \"Aumentar investimento em canais com maior ROI\"\n    ]\n  });\n});\n\napp.post('/api/pest-control', async (req, res) => {\n  // Simulação\n  res.json({\n    outbreakRisk: \"Alto risco de surto\",\n    recommendations: [\n      \"Aumentar monitoramento nas áreas críticas\",\n      \"Implementar barreiras naturais\",\n      \"Programar pulverização preventiva\"\n    ]\n  });\n});\n\napp.post('/api/ai', async (req, res) => {\n  const prompt = req.body.prompt || \"\";\n  // Simulação\n  res.json({\n    analysis: \"Tipo... eu diria que Reduzir custos operacionais\",\n    confidence: \"92%\"\n  });\n});\n\napp.listen(PORT, () => {\n  console.log(` Backend rodando em http://localhost:${PORT}`);\n});\n\n──────────────────────────────\n\n─ ai/scripts/evaluate_code.py\nimport sys\n\ndef main():\n    code = sys.argv[1]\n    try:\n        exec(code)\n        print(\"OK: código executado com sucesso.\")\n    except Exception as e:\n        print(f\"Erro: {e}\")\n\nif __name__ == \"__main__\":\n    main()\n\n─ ai/requirements.txt\n# Exemplo\nopenai\ntransformers\n\n──────────────────────────────\n\n─ docker-compose.yml\nversion: '3.8'\nservices:\n  frontend:\n    build: ./frontend\n    ports:\n      - \"3000:3000\"\n    depends_on:\n      - backend\n    environment:\n      - VITE_BACKEND_URL=http://localhost:5000\n  backend:\n    build: ./backend\n    ports:\n      - \"5000:5000\"\n    environment:\n      - MONGO_URI=mongodb://mongo:27017/aigroquantum\n    depends_on:\n      - mongo\n  mongo:\n    image: mongo:6.0\n    ports:\n      - \"27017:27017\"\n    volumes:\n      - mongo_data:/data/db\nvolumes:\n  mongo_data:\n\n──────────────────────────────\n\n─ .env.example\nMONGO_URI=mongodb://mongo:27017/aigroquantum\n\n──────────────────────────────\n\n─ .gitignore\nnode_modules\n.env\nmongo_data\ndist\n.vscode\n.idea\n.DS_Store\n\n──────────────────────────────\n\n─ .github/workflows/deploy.yml\nname: Deploy AigroQuantumSaaS\n\non:\n  push:\n    branches: [main]\n\njobs:\n  build-deploy:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v3\n      - name: Setup Node.js\n        uses: actions/setup-node@v4\n        with:\n          node-version: '18'\n      - name: Install Backend dependencies\n        run: cd backend && npm install\n      - name: Install Frontend dependencies\n        run: cd frontend && npm install\n      - name: Build Frontend\n        run: cd frontend && npm run build\n\n──────────────────────────────\n\n# Faltando? \n# - Para um MVP: Autenticação, modelos Mongo, controllers completos, conexão real com IA.\n# - Para produção: testes, logs, variáveis seguras (.env), documentação API.\n\n# Para rodar:\n# 1. docker-compose up --build\n# 2. Acesse http://localhost:3000\n#\n# Para evoluir: Implemente controllers reais, modelos, autenticação, etc.",
+    "timestamp": "2025-06-28T18:43:02.413Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 1,
+    "type": "user",
+    "message": "sim e me fale o que temos que fazer para começar a ganhar dinheiro com essa plataformatem que fazer teste o que que nós tem que fazereu tenho firma aberta eu sei que eu vou registrar o software como propriedade intelectualMas eu quero saber como que a gente vai começar a ganhar dinheiro com essa plataforma",
+    "timestamp": "2025-06-28T18:51:24.731Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 2,
+    "type": "user",
+    "message": "sim e contorne a situação do docker composer pois estamos falando dentro de um smartphoneconsome essa situaçãoe continue em Progresso continua no desenvolvimento da plataformaAliás você é meuengenheiro de software arquiteto número 1 por isso que eu escolhi você",
+    "timestamp": "2025-06-28T18:55:15.228Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 3,
+    "type": "user",
+    "message": "acho que eu enviei o HTML errado para vocêo correto é esse aqui órefratário todo corrija tudo simples assimse vira você não é inteligente  ﻿<!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <title>AigroQuantumSaaS - Projeto Completo</title>\n  <script src=\"https://unpkg.com/react@18/umd/react.development.js\"  crossorigin></script>\n  <script src=\"https://unpkg.com/react-dom@18/umd/react-dom.development.js\"  crossorigin></script>\n  <script src=\"https://unpkg.com/@babel/standalone/babel.min.js\"></script> \n  <style>\n    body { font-family: 'Inter', sans-serif; background: #000; color: #fff; padding: 20px; }\n    h2 { color: #00FFFF; margin-top: 20px; }\n    pre { background: #111; padding: 15px; border-radius: 5px; overflow-x: auto; }\n    code { font-family: monospace; }\n    .section { display: none; }\n    .section.active { display: block; }\n    .nav { margin-bottom: 20px; }\n    .nav button { margin: 5px; padding: 10px 15px; background: #00FFFF; color: #000; border: none; border-radius: 4px; cursor: pointer; }\n    .copy-btn { float: right; background: #00E6FF; padding: 5px 10px; border-radius: 4px; cursor: pointer; }\n  </style>\n</head>\n<body>\n  <h1> AigroQuantumSaaS - Projeto Completo em Uma Tela</h1>\n  <p>Use os botões abaixo para navegar entre as partes do projeto.</p>\n\n  <!-- Navegação -->\n  <div class=\"nav\">\n    <button onclick=\"showSection('frontend')\">Frontend</button>\n    <button onclick=\"showSection('backend')\">Backend</button>\n    <button onclick=\"showSection('ai')\">IA</button>\n    <button onclick=\"showSection('docker')\">Docker</button>\n    <button onclick=\"showSection('deploy')\">Deploy</button>\n    <button onclick=\"showSection('readme')\">README</button>\n    <button onclick=\"showSection('license')\">LICENSE</button>\n  </div>\n\n  <!-- Seção Ativa -->\n  <div id=\"content\"></div>\n\n  <!-- Scripts de Navegação -->\n  <script>\n    const sections = {\n      frontend: `<h2> frontend/src/App.jsx</h2><pre><code>\nimport React from \"react\";\nimport { BrowserRouter as Router, Routes, Route } from \"react-router-dom\";\nimport Home from \"./pages/Home\";\nimport Dashboard from \"./pages/Dashboard\";\n\nfunction App() {\n  return (\n    <Router>\n      <Routes>\n        <Route path=\"/\" element={<Home />} />\n        <Route path=\"/dashboard\" element={<Dashboard />} />\n      </Routes>\n    </Router>\n  );\n}\n\nexport default App;\n</code></pre>\n\n<h2> frontend/src/pages/Home.jsx</h2><pre><code>\nimport React, { useState } from \"react\";\nimport Header from \"./components/Header\";\nimport Hero from \"./components/Hero\";\nimport Features from \"./components/Features\";\nimport Footer from \"./components/Footer\";\n\nexport default function Home() {\n  const [showLogin, setShowLogin] = useState(false);\n  const [email, setEmail] = useState(\"\");\n  const [password, setPassword] = useState(\"\");\n\n  const handleLogin = async () => {\n    try {\n      const res = await fetch(\"http://localhost:5000/api/auth/login\", {\n        method: \"POST\",\n        headers: { \"Content-Type\": \"application/json\" },\n        body: JSON.stringify({ email, password })\n      });\n      const data = await res.json();\n      localStorage.setItem(\"token\", data.token);\n      window.location.href = \"/dashboard\";\n    } catch (err) {\n      alert(\"Erro ao fazer login\");\n    }\n  };\n\n  return (\n    <div className=\"bg-black min-h-screen\">\n      <Header onLoginClick={() => setShowLogin(true)} />\n      <Hero onGetStarted={() => setShowLogin(true)} />\n      <Features />\n      <Footer />\n\n      {showLogin && (\n        <div className=\"fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50\">\n          <div className=\"bg-gray-900 p-6 rounded shadow-lg w-96\">\n            <h2 className=\"text-xl font-bold mb-4\">Entrar</h2>\n            <input type=\"email\" placeholder=\"Email\" value={email} onChange={(e) => setEmail(e.target.value)} className=\"w-full p-2 mb-4 bg-gray-800 text-white rounded\" />\n            <input type=\"password\" placeholder=\"Senha\" value={password} onChange={(e) => setPassword(e.target.value)} className=\"w-full p-2 mb-4 bg-gray-800 text-white rounded\" />\n            <button onClick={handleLogin} className=\"w-full bg-cyan-400 text-black py-2 rounded\">Entrar</button>\n            <button onClick={() => setShowLogin(false)} className=\"mt-2 text-sm text-gray-400\">Fechar</button>\n          </div>\n        </div>\n      )}\n    </div>\n  );\n}\n</code></pre>\n\n<h2> frontend/src/pages/Dashboard.jsx</h2><pre><code>\nimport React, { useEffect, useState } from \"react\";\n\nexport default function Dashboard() {\n  const [courses, setCourses] = useState([]);\n\n  useEffect(() => {\n    const fetchCourses = async () => {\n      const token = localStorage.getItem(\"token\");\n      const res = await fetch(\"http://localhost:5000/api/courses\", {\n        headers: { \"x-auth-token\": token }\n      });\n      const data = await res.json();\n      setCourses(data);\n    };\n    fetchCourses();\n  }, []);\n\n  return (\n    <div className=\"min-h-screen bg-gray-900 p-6\">\n      <h1 className=\"text-3xl font-bold mb-6\">Seus Cursos</h1>\n      <ul className=\"space-y-4\">\n        {courses.map((course, i) => (\n          <li key={i} className=\"p-4 border rounded bg-gray-800\">\n            <h2 className=\"text-xl\">{course.title}</h2>\n            <p>{course.description}</p>\n          </li>\n        ))}\n      </ul>\n    </div>\n  );\n}\n</code></pre>`,\n      \n      backend: `<h2> backend/server.js</h2><pre><code>\nconst express = require(\"express\");\nconst cors = require(\"cors\");\nconst connectDB = require(\"./config/db\");\n\nconnectDB();\n\nconst app = express();\napp.use(express.json());\napp.use(cors());\n\n// Rotas\napp.use(\"/api/auth\", require(\"./routes/auth\"));\napp.use(\"/api/courses\", require(\"./routes/course\"));\napp.use(\"/api/gamification\", require(\"./routes/gamification\"));\n\nconst PORT = process.env.PORT || 5000;\napp.listen(PORT, () => console.log(\\`Servidor rodando na porta \\${PORT}\\`));\n</code></pre>\n\n<h2> backend/config/db.js</h2><pre><code>\nconst mongoose = require(\"mongoose\");\n\nconst connectDB = async () => {\n  try {\n    await mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });\n    console.log(\"MongoDB conectado\");\n  } catch (err) {\n    console.error(\"Erro ao conectar ao MongoDB\", err);\n    process.exit(1);\n  }\n};\n\nmodule.exports = connectDB;\n</code></pre>\n\n<h2> backend/routes/auth.js</h2><pre><code>\nconst express = require(\"express\");\nconst router = express.Router();\nconst { register, login } = require(\"../controllers/authController\");\n\nrouter.post(\"/register\", register);\nrouter.post(\"/login\", login);\n\nmodule.exports = router;\n</code></pre>\n\n<h2> backend/routes/course.js</h2><pre><code>\nconst express = require(\"express\");\nconst router = express.Router();\nconst auth = require(\"../middleware/authMiddleware\");\nconst Course = require(\"../models/Course\");\n\nrouter.get(\"/courses\", auth, async (req, res) => {\n  try {\n    const courses = await Course.find();\n    res.json(courses);\n  } catch (err) {\n    res.status(500).send(\"Erro no servidor\");\n  }\n});\n\nmodule.exports = router;\n</code></pre>\n\n<h2> backend/routes/gamification.js</h2><pre><code>\nconst express = require(\"express\");\nconst router = express.Router();\nconst auth = require(\"../middleware/authMiddleware\");\nconst UserProgress = require(\"../models/UserProgress\");\nconst Achievement = require(\"../models/Achievement\");\n\nrouter.get(\"/progress\", auth, async (req, res) => {\n  try {\n    const progress = await UserProgress.findOne({ userId: req.user.id });\n    res.json(progress);\n  } catch (err) {\n    res.status(500).send(\"Erro no servidor\");\n  }\n});\n\nrouter.post(\"/add-xp\", auth, async (req, res) => {\n  const { xp } = req.body;\n  try {\n    const progress = await UserProgress.findOneAndUpdate(\n      { userId: req.user.id },\n      { $inc: { xp: xp }, $set: { lastLogin: new Date() } },\n      { upsert: true, new: true }\n    );\n    res.json(progress);\n  } catch (err) {\n    res.status(500).send(\"Erro ao atualizar XP\");\n  }\n});\n\nmodule.exports = router;\n</code></pre>`,\n      \n      ai: `<h2> ai/scripts/evaluate_code.py</h2><pre><code>\nimport sys\n\ndef main():\n    code = sys.argv[1]\n    language = sys.argv[2]\n    description = sys.argv[3]\n    print(f\"[Mimic] Avaliando código em {language}:\\n{code}\\nDescricao: {description}\")\n\nif __name__ == \"__main__\":\n    main()\n</code></pre>\n\n<h2> ai/scripts/auto_correct.py</h2><pre><code>\nimport sys\n\ndef main():\n    code = sys.argv[1]\n    language = sys.argv[2]\n    description = sys.argv[3]\n    print(f\"[Mimic] Corrigindo código em {language}:\\n{code}\\nDescricao: {description}\")\n\nif __name__ == \"__main__\":\n    main()\n</code></pre>\n\n<h2> backend/services/aiService.js</h2><pre><code>\nconst { spawn } = require(\"child_process\");\nconst path = require(\"path\");\n\nasync function evaluateCode(code, language, description) {\n  return new Promise((resolve, reject) => {\n    const pythonProcess = spawn('python', [\n      path.join(__dirname, '../ai/scripts/evaluate_code.py'),\n      code,\n      language,\n      description\n    ]);\n\n    let output = '';\n    pythonProcess.stdout.on('data', (data) => {\n      output += data.toString();\n    });\n\n    pythonProcess.stderr.on('data', (data) => {\n      console.error(\\`Erro: \\${data}\\`);\n    });\n\n    pythonProcess.on('close', (code) => {\n      if (code !== 0) return reject(new Error('Erro na análise da IA'));\n      resolve(output);\n    });\n  });\n}\n\nmodule.exports = { evaluateCode };\n</code></pre>`,\n\n      docker: `<h2> docker-compose.yml</h2><pre><code>\nversion: '3.8'\n\nservices:\n  backend:\n    build: ./backend\n    ports:\n      - \"5000:5000\"\n    environment:\n      MONGO_URI=mongodb://mongo:27017/engenho\n      JWT_SECRET=secreto_engenho_2025\n    depends_on:\n      - mongo\n\n  frontend:\n    build: ./frontend\n    ports:\n      - \"3000:3000\"\n    depends_on:\n      - backend\n\n  mongo:\n    image: mongo:6.0\n    ports:\n      - \"27017:27017\"\n    volumes:\n      - mongodb:/data/db\n\nvolumes:\n  mongodb:\n</code></pre>`,\n\n      deploy: `<h2> .github/workflows/deploy.yml</h2><pre><code>\nname: CI/CD AigroQuantumSaaS\n\non:\n  push:\n    branches:\n      - main\n\njobs:\n  backend-deploy:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v3\n      - name: Setup Node\n        uses: actions/setup-node@v3\n        with:\n          node-version: 18\n      - run: cd backend && npm install\n      - run: echo \"Backend built\"\n\n  frontend-deploy:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v3\n      - name: Setup Node\n        uses: actions/setup-node@v3\n        with:\n          node-version: 18\n      - run: cd frontend && npm install\n      - run: cd frontend && npm run build\n      - name: Deploy to Vercel\n        uses: amondnet/vercel-action@v21\n        with:\n          vercel-token: \\${{ secrets.VERCEL_TOKEN }}\n          vercel-project-id: \\${{ secrets.VERCEL_PROJECT_ID }}\n          vercel-org-id: \\${{ secrets.VERCEL_ORG_ID }}\n</code></pre>`,\n      \n      readme: `<h2> README.md</h2><pre><code>\n#  AigroQuantumSaaS - Plataforma Educacional com IA\n\nPlataforma educacional para estudantes de Engenharia da Computação, com correção automática de código, análise de desempenho e gamificação.\n\n## ️ Tecnologias\n\n| Camada | Tecnologia |\n|--------|------------|\n| Frontend | React.js + Tailwind CSS |\n| Backend | Node.js + Express |\n| Banco | MongoDB |\n| IA | OpenAI API |\n| Deploy | GitHub Actions |\n\n##  Estrutura do Projeto\n\n\\`\\`\\`\nAigroQuantumSaaS-EduTech-IA/\n├── frontend/\n├── backend/\n├── ai/\n├── tests/\n├── .github/workflows/deploy.yml\n└── README.md\n\\`\\`\\`\n\n##  Como Rodar Localmente\n\n1. Clone o repositório  \n2. Configure \\`.env\\`  \n3. Suba os serviços:\n   \\`\\`\\`bash\n   docker-compose up\n   \\`\\`\\`\n4. Abra http://localhost:3000\n</code></pre>`,\n\n      license: `<h2> LICENSE</h2><pre><code>\nMIT License\n\nCopyright (c) 2025 AigroQuantumSaaS\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n</code></pre>`\n    };\n\n    function showSection(name) {\n      const content = document.getElementById(\"content\");\n      const allSections = document.querySelectorAll(\".section\");\n      allSections.forEach(sec => sec.classList.remove(\"active\"));\n      const sectionDiv = document.createElement(\"div\");\n      sectionDiv.className = \"section active\";\n      sectionDiv.innerHTML = sections[name];\n      content.innerHTML = \"\";\n      content.appendChild(sectionDiv);\n    }\n\n    function copyCode(element) {\n      const code = element.previousElementSibling.textContent;\n      navigator.clipboard.writeText(code).then(() => {\n        alert(\"Código copiado para o clipboard!\");\n      });\n    }\n  </script>\n</body>\n</html>",
+    "timestamp": "2025-06-28T18:58:56.436Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 4,
+    "type": "user",
+    "message": "ouvimos esse problema de erro de API",
+    "timestamp": "2025-06-28T19:09:46.768Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 5,
+    "type": "user",
+    "message": "nslookup cloudcode-pa.googleapis.com",
+    "timestamp": "2025-06-28T19:11:56.682Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 6,
+    "type": "user",
+    "message": "sim",
+    "timestamp": "2025-06-28T19:12:39.478Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 7,
+    "type": "user",
+    "message": "consigo então com os trabalhosprossiga então com os trabalhos",
+    "timestamp": "2025-06-28T19:13:40.377Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 8,
+    "type": "user",
+    "message": "Ok prossiga entãofica com conforme a sequência do seu trabalho aíveja o que está faltandona Lan de paigee coloquecódigos de login configuraçãopara que o usuário lá na frente usa a plataforma de modo normal você tá entendendo o que eu tô falando née os botões de download após o pagamento do do softwareeo modo gratuito e quantidade com quantidade de de hora hora e licenças acabou a plataforma vai ser produtos que não vão ser vendidos praticamente é uma licença freemium",
+    "timestamp": "2025-06-28T19:20:33.024Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 9,
+    "type": "user",
+    "message": "sim e # Solicitar previsão de entrega global da plataforma\nschedule rollout --target global --module AigroQuantumSaaS --phase final --deadline 2025-09-30 --include frontend backend ai docker deploy\n\n# Verificar status dos módulos e etapas\nstatus check --all --details\n\n# Solicitar plano de execução restante\ngenerate roadmap --until production-ready --output gantt\n\n# Validar se todos os requisitos para publicação global estão atendidos\nvalidate readiness --criteria scalability, security, ai-stability, ux-test\n\n# Compilar e preparar release para o mundo\nbuild release --mode production --sign apk --target global\n\n# Publicar para ambientes externos (Vercel, Play Store, Cloud)\ndeploy --env global --platform vercel --store playstore --region worldwide",
+    "timestamp": "2025-06-28T19:57:40.036Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 10,
+    "type": "user",
+    "message": "gengine deploy-global --project AigroQuantumSaaS \\\n  --github-token ghp_XXXXXX1234567890 \\\n  --repo ReginaldoGonssavre/AigroQuantumSaaS \\\n  --branch main \\\n  --vercel-token $VERCEL_TOKEN \\\n  --vercel-project AigroQuantumSaaS \\\n  --vercel-org AigroSolutions \\\n  --mongo-uri \"mongodb+srv://admin:senhaSegura@cluster0.mongodb.net/aigro-db?retryWrites=true&w=majority\" \\\n  --db-alias aigro-db \\\n  --notion-token secret_notion_ABC123 \\\n  --notion-db aigro-docs-database \\\n  --trello-key trello_key_abc \\\n  --trello-token trello_token_123 \\\n  --trello-board \"AigroQuantum Board\" \\\n  --zapier-hook https://hooks.zapier.com/hooks/catch/123456/abcdef \\\n  --ai copilot \\\n  --assistant Claude \\\n  --chat-enabled \\\n  --doc-sync markdown,roadmap \\\n  --task-sync backlog,sprint,done \\\n  --monitor vercel,github,mongodb,notion \\\n  --interval 5m \\\n  --auto-push \\\n  --auto-build \\\n  --auto-release \\\n  --sign-apk \\\n  --target world \\\n  --deadline 2025-09-30 \\\n  --force --log all",
+    "timestamp": "2025-06-28T20:22:56.577Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 11,
+    "type": "user",
+    "message": "AVANCE MAIS DEVAGAR A FATORACAO DOS CODIGOS ,PRANAO FORCAR A MEMORIA E CRIE UMA PASTA CHAMADA SITE COM O ARQIVO INDEX.HTML DESSA NOVA ROIPAGEM DO PLATAFORMA imagens para subir o logotipo da empresamas não sei como é que a gente vai fazer isso você tem que puxar pelos arquivos mesmo que tá no diretório as imagenssurgiram alguma pasta que eu coloque as imagens para você subir você colocar no site na plataforma e deixe para o guins em modo standy by aguardando já a nova era quânticapara o início dos trabalhos quânticos com IBM quantojá deixe em espera no sistema paramigração híbrido quântica",
+    "timestamp": "2025-06-28T20:32:22.584Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 12,
+    "type": "user",
+    "message": "a imagem tem um erro de grafia na palavra aigroquantumsaas corrija ela esta como aigroquantumsas,VOU TE PASSAR O NOME DA IMAGEM DEPOIS ME PEÇA AS OITRAS IMAGWNSfile-YBMV4EJMuy3zKEdUAFdEb6",
+    "timestamp": "2025-06-28T20:45:30.638Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 13,
+    "type": "user",
+    "message": "aí tem mais imagem para colocar no site e mando para você ou coloco na pasta lá",
+    "timestamp": "2025-06-28T20:49:03.628Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 14,
+    "type": "user",
+    "message": "file-4BPQ9PxVzjyqgoZrnJgrLb",
+    "timestamp": "2025-06-28T20:51:24.652Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 15,
+    "type": "user",
+    "message": "onde voce achar melhor ,segue outra imagem    file-RWnzR5p6YeCWdqMk7v5Dap",
+    "timestamp": "2025-06-28T20:53:52.815Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 16,
+    "type": "user",
+    "message": "qual o caminho da pasya do index.html",
+    "timestamp": "2025-06-28T20:54:49.754Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 17,
+    "type": "user",
+    "message": "o site é so isso ,se ta de brincadeira ne ,quero que seja inyerativo responsivo com 500 linhaa de codigo tire o modulo pestcontrol ,e coloque modulos voltados para robotica ,sistemas embarcados,navegacao espacial,gps espacial,automacao de maquinas,energia eletrica,produyos digitais ebook,tecnologia quantica ,e o que tiver decmais avancado no mundo em materia de SAAS ,e que o cliente americano,ou europeu,chines ,esta esperando surgir de novidade para comprar e usar em sua residencia ,industria ,os botoes de download as licencas o login nao tem nada ainda,<!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>AigroQuantumSaaS - Homepage</title>\n    <style>\n        body {\n            font-family: Arial, sans-serif;\n            margin: 0;\n            padding: 0;\n            background-color: #0a0a0a;\n            color: #ffffff;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n            justify-content: center;\n            min-height: 100vh;\n            text-align: center;\n        }\n        .container {\n            padding: 20px;\n            max-width: 800px;\n            width: 100%;\n        }\n        .logo {\n            margin-bottom: 30px;\n        }\n        .logo img {\n            max-width: 250px;\n            height: auto;\n        }\n        h1 {\n            font-size: 2.5em;\n            margin-bottom: 15px;\n            color: #00FFFF; /* Cor ciano para destaque */\n        }\n        p {\n            font-size: 1.1em;\n            line-height: 1.6;\n            margin-bottom: 20px;\n        }\n        .cta-button {\n            display: inline-block;\n            background-color: #00FFFF; /* Cor ciano */\n            color: #0a0a0a;\n            padding: 12px 25px;\n            border-radius: 5px;\n            text-decoration: none;\n            font-weight: bold;\n            transition: background-color 0.3s ease;\n        }\n        .cta-button:hover {\n            background-color: #00BFFF; /* Ciano mais escuro no hover */\n        }\n        .footer {\n            margin-top: 50px;\n            font-size: 0.9em;\n            color: #888888;\n        }\n        .products-section {\n            margin-top: 50px;\n            padding: 20px;\n            background-color: #1a1a1a;\n            border-radius: 10px;\n            width: 100%;\n            max-width: 800px;\n        }\n        .products-section h2 {\n            color: #00FFFF;\n            font-size: 2em;\n            margin-bottom: 30px;\n        }\n        .product-grid {\n            display: grid;\n            grid-template-columns: 1fr;\n            gap: 30px;\n        }\n        @media (min-width: 600px) {\n            .product-grid {\n                grid-template-columns: 1fr 1fr;\n            }\n        }\n        .product-item {\n            background-color: #0a0a0a;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 4px 8px rgba(0, 255, 255, 0.2);\n        }\n        .product-item img {\n            max-width: 100%;\n            height: auto;\n            border-radius: 5px;\n            margin-bottom: 15px;\n        }\n        .product-item h3 {\n            color: #00FFFF;\n            font-size: 1.5em;\n            margin-bottom: 10px;\n        }\n        .product-item p {\n            font-size: 1em;\n            color: #cccccc;\n        }\n    </style>\n</head>\n<body>\n    <div class=\"container\">\n        <div class=\"logo\">\n            <img src=\"assets/images/file-YBMV4EJMuy3zKEdUAFdEb6\" alt=\"AigroQuantumSaaS Logo\">\n        </div>\n        <h1>Bem-vindo à AigroQuantumSaaS</h1>\n        <p>\n            Sua plataforma inovadora para gestão inteligente e otimização de processos,\n            impulsionada por IA Generativa e Algoritmos Quânticos Simulados.\n            Prepare-se para a próxima era da tecnologia.\n        </p>\n        <a href=\"#\" class=\"cta-button\">Saiba Mais</a>\n    </div>\n    <section class=\"products-section\">\n        <h2>Nossos Produtos e Soluções</h2>\n        <div class=\"product-grid\">\n            <div class=\"product-item\">\n                <img src=\"assets/images/file-4BPQ9PxVzjyqgoZrnJgrLb\" alt=\"Produto 1\">\n                <h3>Solução de Análise Financeira</h3>\n                <p>Otimize suas finanças com previsões e insights baseados em IA.</p>\n            </div>\n            <div class=\"product-item\">\n                <img src=\"assets/images/file-RWnzR5p6YeCWdqMk7v5Dap\" alt=\"Produto 2\">\n                <h3>Controle Inteligente de Pragas</h3>\n                <p>Monitore e preveja infestações com algoritmos avançados.</p>\n            </div>\n        </div>\n    </section>\n\n    <div class=\"footer\">\n        &copy; 2025 AigroQuantumSaaS. Todos os direitos reservados.\n    </div>\n</body>\n</html>",
+    "timestamp": "2025-06-28T21:02:04.090Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 18,
+    "type": "user",
+    "message": "e em seguida clone repositorio e suba o projeto todo com a nova site",
+    "timestamp": "2025-06-28T21:18:12.556Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 19,
+    "type": "user",
+    "message": "sim e sobre o site e os arquivos para o github repositório https://github.com/ReginaldoGonssavre/Aigro-Solutions.github.io",
+    "timestamp": "2025-06-28T21:35:41.630Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 20,
+    "type": "user",
+    "message": "quais apis você precisa para subir todos vocêsaguarda o momento por favor",
+    "timestamp": "2025-06-28T22:07:22.858Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 21,
+    "type": "user",
+    "message": "O mongodb esta configurado alimente o banco de dados divirtasse segue o codigo ee implantacao ,meu plano é o free \nconst { MongoClient, ServerApiVersion } = require('mongodb');\nconst uri = \"mongodb+srv://GEMINI-CLI-AGENT-Access:Io8KjRuwD67X4SRL@aigro-quantum-saas.um90p23.mongodb.net/?retryWrites=true&w=majority&appName=Aigro-Quantum-Saas\";\n\n// Create a MongoClient with a MongoClientOptions object to set the Stable API version\nconst client = new MongoClient(uri, {\n  serverApi: {\n    version: ServerApiVersion.v1,\n    strict: true,\n    deprecationErrors: true,\n  }\n});\n\nasync function run() {\n  try {\n    // Connect the client to the server(optional starting in v4.7)\n    await client.connect();\n    // Send a ping to confirm a successful connection\n    await client.db(\"admin\").command({ ping: 1 });\n    console.log(\"Pinged your deployment. You successfully connected to MongoDB!\");\n  } finally {\n    // Ensures that the client will close when you finish/error\n    await client.close();\n  }\n}\nrun().catch(console.dir);",
+    "timestamp": "2025-06-28T22:22:42.846Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 22,
+    "type": "user",
+    "message": "vou enviar a  key gemini que nome voce que na chave do google ai",
+    "timestamp": "2025-06-28T22:26:47.094Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 23,
+    "type": "user",
+    "message": "AIzaSyDWA7B3ZZT6dAVsKdxSsjGPJAvv7skNMV0",
+    "timestamp": "2025-06-28T22:28:23.408Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 24,
+    "type": "user",
+    "message": "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",
+    "timestamp": "2025-06-28T22:39:47.264Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 25,
+    "type": "user",
+    "message": "clonar o repositorio github",
+    "timestamp": "2025-06-28T22:40:32.218Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 26,
+    "type": "user",
+    "message": "https://github.com/ReginaldoGonssavre/Aigro-Solutions.github.io.git",
+    "timestamp": "2025-06-28T22:42:50.129Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 27,
+    "type": "user",
+    "message": "passa os comandos entao",
+    "timestamp": "2025-06-28T22:43:50.720Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 28,
+    "type": "user",
+    "message": "git clone https://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@github.com/ReginaldoGonssavre/Aigro-Solutions.github.io.git",
+    "timestamp": "2025-06-28T22:52:46.671Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 29,
+    "type": "user",
+    "message": "me ajude  om isso ~/Aigro-Solutions.github.io/Aigro-Solutions.github.io $ git push origin main\nerror: src refspec main does not match any\nerror: failed to push some refs to 'https://github.com/ReginaldoGonssavre/Aigro-Solutions.github.io.git'\n~/Aigro-Solutions.github.io/Aigro-Solutions.github.io $",
+    "timestamp": "2025-06-28T23:14:07.748Z"
+  },
+  {
+    "sessionId": "5e5b8415-e46d-4050-ad19-5e74761a7e6e",
+    "messageId": 30,
+    "type": "user",
+    "message": "bash: cd: too many arguments",
+    "timestamp": "2025-06-28T23:52:02.511Z"
+  }
+]5-06-28T23:52:00.266Z"
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "sessionId": "ab2cde03-e020-46ee-952c-9bbbd673269c",
+    "messageId": 0,
+    "type": "user",
+    "message": "SIM ,OK, Desenvolva uma DeepTech SaaS com base em arquitetura de microservices, seguindo estas instruções:\n\n1. **Defina a arquitetura geral do sistema**:\n   - Use padrão **Domain-Driven Design (DDD)**.\n   - Estruture os microsserviços em torno de domínios específicos (ex: auth, users, analytics, notifications, api-gateway).\n   - Use comunicação via **REST** e **gRPC** quando necessário.\n   - Prepare documentação técnica no padrão OpenAPI (Swagger).\n\n2. **Escolha a stack tecnológica baseada em performance, escalabilidade e modularidade**:\n   - Backend: `Node.js` (NestJS) ou `Python` (FastAPI)\n   - Frontend: `Next.js` ou `Vue.js`\n   - Banco de Dados: `PostgreSQL`, `MongoDB`\n   - Filas de eventos: `Kafka` ou `RabbitMQ`\n   - Cache: `Redis`\n   - Orquestração: `Docker` + `Kubernetes`\n   - CI/CD: `GitHub Actions` ou `GitLab CI`\n   - Deploy: `Vercel`, `Google Cloud`, `AWS`, ou `Render`\n\n3. **Crie um repositório Git organizado com estrutura modular**:\n   - Exporte comandos `git init`, `git remote add origin`, `git push origin main`\n   - Geração automática de `.gitignore`, `README.md`, `LICENSE`, e configuração de lint + commit lint\n\n4. **Implemente os microservices com código funcional**:\n   - Inicie pelos serviços `auth`, `users` e `gateway`\n   - Cada microserviço deve ser containerizado com Dockerfile independente\n   - Inclua rotas básicas (CRUD), testes automatizados (`Jest` ou `Pytest`) e monitoramento (`Prometheus`, `Grafana`)\n\n5. **Crie um ambiente de desenvolvimento local**:\n   - `docker-compose.yml` com todos os serviços interligados\n   - Scripts `makefile` para facilitar `up`, `build`, `migrate`, `test`\n\n6. **Configure autenticação e segurança**:\n   - JWT com renovação automática\n   - OAuth2 (Google, GitHub)\n   - Criptografia de dados sensíveis\n\n7. **Configure CI/CD**:\n   - Testes rodando automaticamente a cada push\n   - Deploy automático com rollback em caso de falha\n   - Secrets gerenciados por `Vault` ou `dotenv-vault`\n\n8. **Crie um frontend básico para interação**:\n   - Página de login, dashboard de serviços e logs em tempo real\n   - Consumo de APIs dos microsserviços com autenticação integrada\n\n9. **Implemente observabilidade**:\n   - Logging centralizado (`ELK Stack` ou `Loki`)\n   - Tracing distribuído (com `Jaeger`)\n   - Health-check automático e escalabilidade horizontal\n\n10. **Documentação e publicação**:\n    - Geração de documentação para cada serviço com Swagger\n    - Exportação de rota `/docs` em todos os microservices\n    - Publicar código final em repositório GitHub com branches `main` e `dev`\n\n11. **Integrações externas** (opcional):\n    - Integração com API externa como Stripe, Twilio, WeatherAPI\n    - Webhooks com Notion, Trello, Slack para status dos serviços\n\nFinalidade da DeepTech: **[Inserir sua missão ou vertical: ex: Agrotech, Biotech, Spacetech, IoT, Fintech, GovTech]**",
+    "timestamp": "2025-06-29T03:53:49.891Z"
+  },
+  {
+    "sessionId": "ab2cde03-e020-46ee-952c-9bbbd673269c",
+    "messageId": 1,
+    "type": "user",
+    "message": "em que linguagwm esta escrito o novo site e omde qie ta aqii",
+    "timestamp": "2025-06-29T05:01:50.284Z"
+  },
+  {
+    "sessionId": "ab2cde03-e020-46ee-952c-9bbbd673269c",
+    "messageId": 2,
+    "type": "user",
+    "message": "e no github ta na onde",
+    "timestamp": "2025-06-29T05:02:31.004Z"
+  },
+  {
+    "sessionId": "ab2cde03-e020-46ee-952c-9bbbd673269c",
+    "messageId": 3,
+    "type": "user",
+    "message": "sim vamos subir tudo e commitar",
+    "timestamp": "2025-06-29T05:03:26.192Z"
+  },
+  {
+    "sessionId": "ab2cde03-e020-46ee-952c-9bbbd673269c",
+    "messageId": 4,
+    "type": "user",
+    "message": "simm",
+    "timestamp": "2025-06-29T05:07:01.380Z"
+  }
+]

@@ -1,0 +1,104 @@
+0 verbose cli /data/data/com.termux/files/usr/bin/node /data/data/com.termux/files/usr/bin/npm
+1 info using npm@10.9.2
+2 info using node@v22.15.1
+3 silly config load:file:/data/data/com.termux/files/usr/lib/node_modules/npm/npmrc
+4 silly config load:file:/data/data/com.termux/files/home/AigroQuantumSaaS-EduTech-IA/frontend/.npmrc
+5 silly config load:file:/data/data/com.termux/files/home/.npmrc
+6 silly config load:file:/data/data/com.termux/files/usr/etc/npmrc
+7 verbose title npm install
+8 verbose argv "install"
+9 verbose logfile logs-max:10 dir:/data/data/com.termux/files/home/.npm/_logs/2025-06-28T19_14_50_977Z-
+10 verbose logfile /data/data/com.termux/files/home/.npm/_logs/2025-06-28T19_14_50_977Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:929824768 maxSize:232456192 maxEntrySize:116228096
+13 silly idealTree buildDeps
+14 silly fetch manifest react@^18.2.0
+15 silly packumentCache full:https://registry.npmjs.org/react cache-miss
+16 http fetch GET 200 https://registry.npmjs.org/react 393ms (cache revalidated)
+17 silly packumentCache full:https://registry.npmjs.org/react set size:5808624 disposed:false
+18 silly fetch manifest react-dom@^18.2.0
+19 silly packumentCache full:https://registry.npmjs.org/react-dom cache-miss
+20 http fetch GET 200 https://registry.npmjs.org/react-dom 129ms (cache revalidated)
+21 silly packumentCache full:https://registry.npmjs.org/react-dom set size:7426583 disposed:false
+22 silly fetch manifest react-router-dom@^6.22.3
+23 silly packumentCache full:https://registry.npmjs.org/react-router-dom cache-miss
+24 http fetch GET 200 https://registry.npmjs.org/react-router-dom 190ms (cache miss)
+25 silly packumentCache full:https://registry.npmjs.org/react-router-dom set size:undefined disposed:false
+26 silly placeDep ROOT react@18.3.1 OK for: frontend@0.1.0 want: ^18.2.0
+27 silly placeDep ROOT react-dom@18.3.1 OK for: frontend@0.1.0 want: ^18.2.0
+28 silly placeDep ROOT react-router-dom@6.30.1 OK for: frontend@0.1.0 want: ^6.22.3
+29 silly fetch manifest loose-envify@^1.1.0
+30 silly packumentCache full:https://registry.npmjs.org/loose-envify cache-miss
+31 silly fetch manifest scheduler@^0.23.2
+32 silly packumentCache full:https://registry.npmjs.org/scheduler cache-miss
+33 silly fetch manifest loose-envify@^1.1.0
+34 silly packumentCache full:https://registry.npmjs.org/loose-envify cache-miss
+35 silly fetch manifest react-router@6.30.1
+36 silly packumentCache full:https://registry.npmjs.org/react-router cache-miss
+37 silly fetch manifest @remix-run/router@1.23.0
+38 silly packumentCache full:https://registry.npmjs.org/@remix-run%2frouter cache-miss
+39 http fetch GET 200 https://registry.npmjs.org/@remix-run%2frouter 97ms (cache miss)
+40 silly packumentCache full:https://registry.npmjs.org/@remix-run%2frouter set size:undefined disposed:false
+41 http fetch GET 200 https://registry.npmjs.org/scheduler 253ms (cache revalidated)
+42 silly packumentCache full:https://registry.npmjs.org/scheduler set size:4879017 disposed:false
+43 http fetch GET 200 https://registry.npmjs.org/react-router 491ms (cache miss)
+44 silly packumentCache full:https://registry.npmjs.org/react-router set size:undefined disposed:false
+45 http fetch GET 200 https://registry.npmjs.org/loose-envify 820ms (cache revalidated)
+46 silly packumentCache full:https://registry.npmjs.org/loose-envify set size:12559 disposed:false
+47 http fetch GET 200 https://registry.npmjs.org/loose-envify 912ms (cache revalidated)
+48 silly packumentCache full:https://registry.npmjs.org/loose-envify set size:12559 disposed:false
+49 silly packumentCache full:https://registry.npmjs.org/loose-envify dispose
+50 silly placeDep ROOT loose-envify@1.4.0 OK for: react@18.3.1 want: ^1.1.0
+51 silly fetch manifest js-tokens@^3.0.0 || ^4.0.0
+52 silly packumentCache full:https://registry.npmjs.org/js-tokens cache-miss
+53 http fetch GET 200 https://registry.npmjs.org/js-tokens 85ms (cache revalidated)
+54 silly packumentCache full:https://registry.npmjs.org/js-tokens set size:40514 disposed:false
+55 silly placeDep ROOT js-tokens@4.0.0 OK for: loose-envify@1.4.0 want: ^3.0.0 || ^4.0.0
+56 silly placeDep ROOT scheduler@0.23.2 OK for: react-dom@18.3.1 want: ^0.23.2
+57 silly fetch manifest react@>=16.8
+58 silly packumentCache full:https://registry.npmjs.org/react cache-miss
+59 http cache https://registry.npmjs.org/react 58ms (cache hit)
+60 silly packumentCache full:https://registry.npmjs.org/react set size:5808624 disposed:false
+61 silly placeDep ROOT @remix-run/router@1.23.0 OK for: react-router-dom@6.30.1 want: 1.23.0
+62 silly placeDep ROOT react-router@6.30.1 OK for: react-router-dom@6.30.1 want: 6.30.1
+63 silly reify moves {}
+64 silly audit bulk request {
+64 silly audit   react: [ '18.3.1' ],
+64 silly audit   'react-dom': [ '18.3.1' ],
+64 silly audit   'react-router-dom': [ '6.30.1' ],
+64 silly audit   'loose-envify': [ '1.4.0' ],
+64 silly audit   'js-tokens': [ '4.0.0' ],
+64 silly audit   scheduler: [ '0.23.2' ],
+64 silly audit   '@remix-run/router': [ '1.23.0' ],
+64 silly audit   'react-router': [ '6.30.1' ]
+64 silly audit }
+65 http cache @remix-run/router@https://registry.npmjs.org/@remix-run/router/-/router-1.23.0.tgz 0ms (cache hit)
+66 http cache scheduler@https://registry.npmjs.org/scheduler/-/scheduler-0.23.2.tgz 0ms (cache hit)
+67 http cache js-tokens@https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz 0ms (cache hit)
+68 http cache react-router-dom@https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.30.1.tgz 1ms (cache hit)
+69 http cache react-router@https://registry.npmjs.org/react-router/-/react-router-6.30.1.tgz 0ms (cache hit)
+70 http cache react-dom@https://registry.npmjs.org/react-dom/-/react-dom-18.3.1.tgz 0ms (cache hit)
+71 http cache react@https://registry.npmjs.org/react/-/react-18.3.1.tgz 0ms (cache hit)
+72 http cache loose-envify@https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz 0ms (cache hit)
+73 silly tarball no local data for @remix-run/router@https://registry.npmjs.org/@remix-run/router/-/router-1.23.0.tgz. Extracting by manifest.
+74 silly tarball no local data for react-router@https://registry.npmjs.org/react-router/-/react-router-6.30.1.tgz. Extracting by manifest.
+75 silly tarball no local data for react-router-dom@https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.30.1.tgz. Extracting by manifest.
+76 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 308ms
+77 silly audit report {}
+78 http fetch GET 200 https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.30.1.tgz 403ms (cache miss)
+79 http fetch GET 200 https://registry.npmjs.org/react-router/-/react-router-6.30.1.tgz 409ms (cache miss)
+80 http fetch GET 200 https://registry.npmjs.org/@remix-run/router/-/router-1.23.0.tgz 473ms (cache miss)
+81 silly ADD node_modules/react-router
+82 silly ADD node_modules/@remix-run/router
+83 silly ADD node_modules/scheduler
+84 silly ADD node_modules/js-tokens
+85 silly ADD node_modules/loose-envify
+86 silly ADD node_modules/react-router-dom
+87 silly ADD node_modules/react-dom
+88 silly ADD node_modules/react
+89 verbose cwd /data/data/com.termux/files/home/AigroQuantumSaaS-EduTech-IA/frontend
+90 verbose os Linux 5.15.153-android13-3-29703599
+91 verbose node v22.15.1
+92 verbose npm  v10.9.2
+93 verbose exit 0
+94 info ok
